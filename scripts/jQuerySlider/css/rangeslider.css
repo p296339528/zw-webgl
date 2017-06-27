@@ -1,0 +1,21 @@
+.rangeslider{position: relative;}
+.rangeslider,.rangeslider__fill{display: block;width: 100%;-moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);-webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;background: #e7dac0;height: 7px;}
+.rangeslider--disabled{filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);opacity: 0.4;}
+input[type="range"]:focus + .rangeslider .rangeslider__handle{-moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);-webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);}
+.rangeslider__fill{background: #e25826;}
+.rangeslider__handle{position: absolute;width: 15px;height: 18px;cursor: pointer;display: inline-block;background: url(../../../images/systemset_rangebtn.png) no-repeat;}
+.rangeslider__handle:active{}
+
+
+/*系统设置*/
+.systemset .rangeslider__handle{top: -6px;}
+
+/*素材长宽高自定义*/
+.whsz .rangeslider{margin-top: 6px;}
+.whsz .rangeslider,.whsz .rangeslider__fill{float: left;width: 71% ;height: 5px;}
+/*.whsz .rangeslider:before{content: attr(min);position: absolute;top: 5px;left: 2px;}
+.whsz .rangeslider:after{content: attr(max);position: absolute;top: 5px;right: 2px;}*/
+.whsz .rangeslider__handle{top: -4px;width: 13px;height: 15px;background-size: 100% auto;}
+
+/*灯光自定义*/
+.lightset{}
