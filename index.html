@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>浙江省博物馆自主式策展平台</title>
+    <meta charset="utf-8">
+    <!-- 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
+
+    <!-- <link href="scripts/scoll/jquery.jscrollpane.css" rel="stylesheet" type="text/css" /> -->
+    <script src="js/jquery1.8.3.js"></script>
+    <script src="config.js"></script>
+    <link href="scripts/scoll/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/scoll/jquery.mousewheel.js" type="text/javascript"></script>
+    <script src="scripts/scoll/jquery.jscrollpane.js" type="text/javascript"></script>
+    <script src="js/jquery.pager.js" type="text/javascript"></script>
+    <script src="scripts/layer/layer.js" type="text/javascript"></script>
+    <!--弹窗-->
+    <link rel="stylesheet" type="text/css" href="scripts/ModalWindowEffects/css/component.css" />
+    <script src="scripts/ModalWindowEffects/js/modernizr.custom.js"></script>
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <script src="js/Tween.js"></script>
+    <!-- <script src="js/dat.gui.min.js"></script> -->
+    
+    <!-- <script src="js/THREEx.FullScreen.js" type="text/javascript" charset="utf-8"></script> -->
+    <!--颜色选择器-->
+    <link rel="stylesheet" type="text/css" href="scripts/colpick/css/colpick.css" />
+    <script src="scripts/colpick/js/colpick.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body onload='setup();'>
+    <!--加载-->
+    <div class="loading">
+        <canvas id="canvas" width="300" height="300"></canvas>
+    </div>
+    <!-- 提示 -->
+    <div class="tips_save">
+        亲！您已经有5分钟没保存了！请点击下方保存！
+    </div>
+    <!-- 头部start -->
+    <div class="head">
+
+        <div class="logo"></div><span class="ztname"></span>
+        <div class="headright">
+            <div class="btn btn_cl"><i class="cl"></i><span>测量</span></div>
+            <div class="btn btn_dyyl"><i class="dyyl"></i><span>打印预览</span></div>
+            <div class="btn btn_lxbj"><i class="bjlx"></i><span>编辑路线</span></div>
+            <div class="switch jl">
+                <i></i>
+            </div>
+            <div class="chosexl">
+                <span>请选择线路</span><i></i>
+                <ul class="hidexl">
+                    <!--  <li class="ellipsis" title="线路一线路一线路一线路一线路一线路一">线路一线路一线路一线路一线路一线路一</li>
+		                <li class="ellipsis">最多显示十个字</li>
+		                <li class="ellipsis">线路二</li>
+		                <li class="ellipsis">线路二</li> -->
+                </ul>
+            </div>
+            <div class="chosecs">
+                <span>一层</span><i></i>
+                <ul class="hidecs">
+                    <li id="xihu-01" class="ellipsis">一层</li>
+                    <li id="xihu-02" class="ellipsis">二层</li>
+                    <li id="xihu-03" class="ellipsis">三层</li>
+                </ul>
+            </div>
+            <!-- <div class="btn"><i class="bz"></i><span>帮助</span></div> -->
+            <div class="btn xtsz"><i class="sz"></i><span>设置</span></div>
+            <div class="btn" onclick="getFullScreen(this)" id="fullscreen"><i class="qp"></i><span>全屏</span></div>
+        </div>
+    </div>
+    <!-- 左侧菜单栏 start -->
+    <div class="leftside">
+
+        <ul class="leftside_menu">
+            <li class="leftside_menu_li">
+                <!-- <div class="title"><i class="sprite zt"></i><span>展厅</span></div> -->
+                <!-- <div class="title"><i class="zt"></i><span>展厅</span></div>
+	        		<div class="leftside_menu_cont leftside_menu_cont1">
+	        			<div class="closemenu"><i class="sprite"></i></div>
+						<ul class="imglist ztlist" id="zhanting">
+						</ul>
+					</div> -->
+                <div class="title"><i class="zt"></i><span>展厅</span></div>
+                <div class="leftside_menu_cont leftside_menu_cont1">
+                    <i class="closemenu"></i>
+                    <ul class="imglist ztlist" id="zhanting">
+                        <!-- <li class="active"><i><img src="images/ww.jpg"/></i><p>展厅一</p></li>
+							<li><i><img src="images/ww.jpg"/></i><p>展厅二</p></li>
+							<li><i><img src="images/ww.jpg"/></i><p>展厅三</p></li>
+							<li><i><img src="images/ww.jpg"/></i><p>展厅四</p></li>
+							<li><i><img src="images/ww.jpg"/></i><p>展厅五</p></li>
+							<li><i><img src="images/ww.jpg"/></i><p>展厅六</p></li> -->
+                    </ul>
+                </div>
+            </li>
+
+            <li class="leftside_menu_li">
+                <div class="title"><i class="zp"></i><span>展品</span></div>
+                <div class="leftside_menu_cont leftside_menu_cont3">
+                    <i class="closemenu"></i>
+                    <div class="searchbox">
+                        <input type="text" placeholder="请输入展品名称" />
+                        <i></i>
+                    </div>
+                    <ul class="isshowlist clearfix">
+                        <li class="active">未布展<i></i></li>
+                        <li>已布展<i></i></li>
+                    </ul>
+                    <ul class="typelist clearfix" id="unittype">
+                    </ul>
+
+                    <ul class="imglist clearfix" id="zhanpin">
+                    </ul>
+                    <div class="pager"></div>
+                </div>
+            </li>
+            <li class="leftside_menu_li">
+                <!-- <div class="title"><i class="sprite sc"></i><span>素材</span></div>
+                    <div class="leftside_menu_cont leftside_menu_cont2"> -->
+                <div class="title"><i class="sc"></i><span>素材</span></div>
+                <div class="leftside_menu_cont leftside_menu_cont2">
+                    <i class="closemenu"></i>
+                    <ul class="typelist clearfix" id="sourcetype">
+
+                    </ul>
+
+                    <ul class="imglist clearfix" id="sourcelist">
+
+                    </ul>
+                    <div class="zdy" id="sourcezdy">
+                        <i></i>
+                        <p>立刻绘制一个自定义素材？</p>
+                        <span class="yellowbtn">绘制</span>
+                    </div>
+                    <div class="pager"></div>
+                </div>
+            </li>
+            <li class="leftside_menu_li">
+                <div class="title"><i class="wl"></i><span>纹理</span></div>
+                <div class="leftside_menu_cont leftside_menu_cont4">
+                    <i class="closemenu"></i>
+                    <ul class="typelist clearfix" id="texturetype">
+                        <!-- 		<li class="active">墙纸</li>
+								<li>地板</li> -->
+                    </ul>
+                    <ul class="imglist clearfix" id="texturelist">
+                        <!-- 	<li><img src="images/ww.jpg"/><p>文物2</p></li>
+							<li><img src="images/ww.jpg"/><p>文物2</p></li>
+							<li><img src="images/ww.jpg"/><p>文物2</p></li>
+							<li><img src="images/ww.jpg"/><p>文物2</p></li>
+							<li><img src="images/ww.jpg"/><p>文物2</p></li>
+							<li><img src="images/ww.jpg"/><p>文物2</p></li> -->
+                    </ul>
+                    <div class="pager"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 左侧菜单栏end -->
+    <!-- 主体画布start -->
+    <div class="maincont">
+        <!-- 场景 -->
+        <div class="canvas" id="ThreeJS"></div>
+        <!--操作-->
+        <ul class="operate">
+            <!-- <li class="yd"><i class="sprite"></i><span>移动</span></li>
+				<li class="xz"> <i class="sprite"></i><span>旋转</span></li> -->
+            <!-- <li class="sc"><i></i><span>删除</span></li>
+				<li class="xq"><i></i><span>信息</span></li> -->
+
+            <li class="light" title="添加灯光"><i></i></li>
+            <li class="dellight" title="删除灯光"><i></i></li>
+            <li class="set" title="宽高设置"><i></i></li>
+            <li class="text" title="添加文字"><i></i></li>
+            <li class="delete" title="删除"><i></i></li>
+            <li class="detail" title="查看详情"><i></i></li>
+            <li class="rotate" title="旋转"><i></i></li>
+            <li class="picborder" title="添加画框"><i></i></li>
+            <li class="delpicborder" title="删除画框"><i></i></li>
+
+
+
+            <!-- <li class="yp"><i class="sprite"></i><span>音频</span></li>
+
+				<li class="light" title="添加灯光"><i></i></li>
+				<li class="dellight" title="删除灯光"><i></i></li>
+				<li class="set" title="宽高设置"><i></i></li>
+				<li class="text" title="添加文字"><i></i></li>
+				<li class="delete" title="删除"><i></i></li>
+				<li class="detail" title="查看详情"><i></i></li>
+				<li class="rotate" title="旋转"><i></i></li>
+				<li class="picborder" title="添加画框"><i></i></li>
+				<li class="delpicborder" title="删除画框"><i></i></li>
+				<!-- <li class="yp"><i class="sprite"></i><span>音频</span></li>
+
+				<li class="light" title="添加灯光"><i></i></li>
+				<li class="dellight" title="删除灯光"><i></i></li>
+				<li class="set" title="宽高设置"><i></i></li>
+				<li class="text" title="添加文字"><i></i></li>
+				<li class="delete" title="删除"><i></i></li>
+				<li class="detail" title="查看详情"><i></i></li>
+				<li class="rotate" title="旋转"><i></i></li>
+				<li class="picborder" title="添加画框"><i></i></li>
+				<li class="delpicborder" title="删除画框"><i></i></li>
+				<li class="scale" title="缩放"><i></i></li>
+				<!-- <li class="yp"><i class="sprite"></i><span>音频</span></li>
+
+				<li class="sp"><i class="sprite"></i><span>视频</span></li> -->
+        </ul>
+        <!-- 组合 -->
+        <div class="dxzh" id="dxzhbox">
+            <ul>
+                <li class="zh_li"><i class="zh"></i><span>组合</span></li>
+                <li class="jczh_li"><i class="jczh"></i><span>解除组合</span></li>
+            </ul>
+        </div>
+        <!--灯光自定义-->
+        <div class="whsz lightset" id="lightbox">
+            <div class="inputdiv">
+                <label>灯光颜色：</label>
+                <div class="lightcol"></div>
+            </div>
+            <div class="inputdiv">
+                <label>角度：</label>
+                <div class="range" name="angle">
+                    <input type="range" min="0" max="0.7" step="0.1" value="0.5" data-rangeslider>
+                    <input type="text" readonly/>
+                </div>
+            </div>
+            <div class="inputdiv">
+                <label>强度：</label>
+                <div class="range" name="intensity">
+                    <input type="range" min="0" max="4" step="0.1" value="1" data-rangeslider>
+                    <input type="text" readonly/>
+                </div>
+            </div>
+            <div class="inputdiv">
+                <label>距离：</label>
+                <div class="range" name="distance">
+                    <input type="range" min="0" max="8" step="0.2" value="5" data-rangeslider>
+                    <input type="text" readonly/>
+                </div>
+            </div>
+            <div class="inputdiv">
+                <label>衰减速度：</label>
+                <div class="range" name="penumbra">
+                    <input type="range" min="0" max="1" step="0.1" value="0.2" data-rangeslider>
+                    <input type="text" readonly/>
+                </div>
+            </div>
+            <div class="inputdiv">
+                <label>高度：</label>
+                <div class="range" name="height">
+                    <input type="range" min="0" max="5" step="0.05" value="0" data-rangeslider>
+                    <input type="text" readonly/>
+                </div>
+            </div>
+        </div>
+
+        <!-- //画框长高设置 -->
+        <!-- <div class="whsz lightset" id="sizebox">
+          <div class="inputdiv">
+              <label>长：</label>
+              <div class="range" name="x">
+                  <input type="range" min="0" max="4" step="0.1" value="2" data-rangeslider>
+                  <input type="text" />
+              </div>
+          </div>
+          <div class="inputdiv">
+              <label>宽：</label>
+              <div class="range" name="y">
+                  <input type="range" min="0" max="1.5" step="0.1" value="2" data-rangeslider>
+                  <input type="text" />
+              </div>
+          </div>
+        </div> -->
+
+        <!--素材自定义-->
+        <!--素材长宽高自定义-->
+        <div class="whsz" id="whszbox">
+            <div class="inputdiv">
+                <label>长：</label>
+                <div class="range" name="z">
+                    <input type="range" min="0" max="5" step="0.1" value="0.5" data-rangeslider>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="inputdiv">
+                <label>宽：</label>
+                <div class="range" name="x">
+                    <input type="range" min="0" max="5" step="0.1" value="0.5" data-rangeslider>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="inputdiv">
+                <label>高：</label>
+                <div class="range" name="y">
+                    <input type="range" min="0" max="5" step="0.1" value="0.5" data-rangeslider>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="inputdiv">
+                <label>颜色：</label>
+                <div class="lightcol"></div>
+            </div>
+            <!-- <label for="savesc" class="check"><input type="checkbox" id="savesc" />保存为素材</label> -->
+        </div>
+
+        <!--文字自定义-->
+        <div class="whsz textset" id="textbox">
+            <div class="inputdiv">
+                <label>标题：</label>
+                <input type="text" id="textTitle" value="" />
+            </div>
+            <div class="inputdiv">
+                <label>内容：</label>
+                <textarea id="textContent" name="" rows="" cols=""></textarea>
+            </div>
+            <div class="inputdiv">
+                <label>字号：</label>
+                <input type="text" id="textsize" value="28" />
+            </div>
+            <div class="inputdiv">
+                <label>颜色：</label>
+                <div class="lightcol" id="textcolor"></div>
+            </div>
+            <div class="inputdiv rangediv">
+                <label>长：</label>
+                <div class="range" name="x">
+                    <input type="range" min="0.5" max="2" step="0.1" value="2" data-rangeslider>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="inputdiv rangediv">
+                <label>宽：</label>
+                <div class="range" name="y">
+                    <input type="range" min="0.5" max="2" step="0.1" value="2" data-rangeslider>
+                    <input type="text" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 打印预览start -->
+    <div class="dyyl">
+        <div class="dyylimg">
+            <canvas id="dyylcanvas" width="800" height="600"></canvas >
+		</div>
+		<div class="dyylbtn">
+			<i></i>
+			<span>打印</span>
+		</div>
+		<div class="goback">
+			<i></i><span>返回</span>
+		</div>
+	</div>
+	<!-- 打印预览end-->
+	<!-- 详情页面 -->
+	<div class="collectdetailbg">
+        <i class="collectdetail_close"></i>
+        <div class="collectdetailbox clearfix">
+            <div class="content">
+            	<div class="title clearfix">
+            		<h1 id="htitle"></h1>
+            		<div class="icon">
+            			<!-- <span class="audio"><i></i>音频</span>
+            			<span class="video"><i></i>视频</span>
+            			<span class="threed"><i></i>三维</span> -->
+            		</div>
+            	</div>
+                <!-- <div class="contip">时间：<span id="spPublicDate">2015年06月15日</span></div> -->
+
+                <div id="divContent" class="divContent">
+                    <div class="basicinfo_size basicinfo" >
+
+                    </div>
+                    <div class="basicinfo_title basicinfo" style="display: none">
+                        <h3>标题：</h3>
+                        <p><span></span></p>
+                    </div>
+                    <div class="basicinfo_discribe basicinfo" style="display: none">
+                        <h3>内容：</h3>
+                        <p><span></span></p>
+                    </div>
+                    <p class="discribe"></p>
+
+                </div>
+                <div class="content_img">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<audio src="" class="audiobox" autoplay="autoplay"></audio>
+   	<div class="videobox">
+   		<h3></h3>
+   		<span class="close"></span>
+   		<video src="" autoplay="autoplay" controls="controls"></video>
+   	</div>
+	<!--侧边栏-->
+		<div class="slidebar" id="sliderbar">
+			<span class="slidebar_switch"></span>
+			<ul>
+				<li class="md-trigger" data-modal="modal-11"><i class="clear"></i><span>清除</span></li>
+				<li><i class="reduction"></i><span>还原</span></li>
+				<li><i class="save"></i><span>保存</span></li>
+				<li><i class="preview"></i><span>预览</span></li>
+			</ul>
+		</div>
+	<!--侧边栏_取消预览-->
+	<div class="slidebar slidebar_cancel">
+		<ul>
+			<li><i class="cancel"></i><span>取消</span></li>
+		</ul>
+	</div>
+
+    <!--侧边栏弹窗-->
+	<div class="md-modal md-effect-11 tipcont" id="modal-11">
+		<div class="md-content">
+			<i class="clear"></i>
+			<span>清除布展后不可恢复，确认清除？</span>
+
+			<!--<i class="reduction"></i>
+			<span>还原将返回上一次保存的布展，是否返回？</span>-->
+
+			<!--<i class="save"></i>
+			<span>保存当前所有布展！</span>-->
+
+			<div class="yellowbtn btn" id="clearscene">确认</div>
+			<div class="graybtn btn md-close">取消</div>
+		</div>
+	</div>
+
+	<!--系统设置-->
+		<div class="systemset" id="systemsetbox">
+			<div class="systemsetdiv clearfix">
+				<span>移动速度：</span>
+				<div class="range" name="speed">
+					<input type="range" min="5" max="15" step="1" value="10" data-rangeslider>
+				</div>
+			</div>
+			<!-- <div class="systemsetdiv clearfix">
+				<span>声音大小：</span>
+				<div class="range">
+					<input type="range" min="0" max="15" step="0.5" value="3.5" data-rangeslider>
+				</div>
+			</div> -->
+			<div class="systemsetdiv clearfix">
+				<span>灯光亮度：</span>
+				<div class="range" name="intensity">
+					<input type="range" min="0" max="2" step="0.1" value="1" data-rangeslider>
+				</div>
+			</div>
+			<div class="systemsetdiv clearfix">
+				<span>灯光冷暖：</span>
+				<div class="switch WarmOrCool">
+					<i></i>
+			    </div>
+			</div>
+		</div>
+		<!--底部_播放暂停路线预览-->
+		<div class="slidebar slidebar_cancel lxshow">
+			<ul>
+				<li><i class="show"></i><span>播放</span></li>
+				<li><i class="pause"></i><span>暂停</span></li>
+			</ul>
+		</div>
+
+
+
+	<div class="md-overlay"></div>
+	<div class="mapbox" id="mapbox"></div>
+	<span class="mapstatus toshow" title="显示小地图"></span>
+
+		<script src="js/three.js"></script>
+        <script src="all.min.js"></script>
+		<script src="js/THREEx.WindowResize.js"></script>
+		<!-- <script src="js/controls/MyFirstPersonControls.js"></script> -->
+        <!-- 检测是否支持webgl -->
+		<script src="js/Detector.js"></script>
+		<script src="js/Stats.js"></script>
+		<!-- <script src="js/controls/TransformControls_pzw.js"></script> -->
+		<script src="js/controls/DragControls.js"></script>
+		<!-- model文件加载器start -->
+		<script src="js/loaders/BinaryLoader.js"></script>
+		<script src="js/loaders/MTLLoader.js"></script>
+		<script src="js/loaders/OBJLoader.js"></script>
+		<!-- obj/mtl文件加载器end -->
+		<!-- <script type="text/javascript" src="scripts/customManager.js"></script>
+		<script type="text/javascript" src="scripts/distanceManager.js"></script>
+		<script type="text/javascript" src="scripts/modelsManager.js"></script>
+		<script type="text/javascript" src="scripts/paintingManager.js"></script>
+		<script type="text/javascript" src="scripts/renderManager.js"></script>
+		<script type="text/javascript" src="scripts/toolManager.js"></script>
+		<script type="text/javascript" src="scripts/groupManager.js"></script>
+		<script type="text/javascript" src="scripts/cameraPosManager.js"></script>
+		<script type="text/javascript" src="js/Util.js"></script>
+		<script type="text/javascript" src="init.js"></script>
+		<script type="text/javascript" src="js/initData.js"></script> -->
+
+        <!--全屏-->
+        <!-- <script src="scripts/fullscreen.js" type="text/javascript" charset="utf-8"></script> -->
+        <!--加载进度条-->
+        <!-- <script src="scripts/loadprogressbar.js" type="text/javascript" charset="utf-8"></script> -->
+        <!--公共方法-->
+        <!-- <script src="scripts/common.js" type="text/javascript" charset="utf-8"></script> -->
+
+		<script type="text/javascript" src="scripts/lavalamp_s/js/jquery.lavalamp.min.js"></script>
+
+	</body>
+	<!--滑块-->
+<link rel="stylesheet" type="text/css" href="scripts/jQuerySlider/css/rangeslider.css"/>
+<script src="scripts/jQuerySlider/js/rangeslider.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	//请选择路线
+	$(".chosexl").toggle(function () {
+	        $(".hidexl").slideDown();//显示路线
+	        //获取线路列表
+	        getPointInfo();
+	        $(this).addClass("changeradius");
+	        $(".chosexl i").addClass("totop");
+	    }, function () {
+	        $(".hidexl").slideUp();//隐藏路线
+	        setTimeout(function(){
+	        	$(".chosexl").removeClass("changeradius");
+	        },400);
+	        $(".chosexl i").removeClass("totop");
+	    });
+    //请选择层
+    $(".chosecs").toggle(function () {
+            $(".hidecs").slideDown();//显示路线
+            //获取线路列表
+            // getPointInfo();
+            $(this).addClass("changeradius");
+            $(".chosecs i").addClass("totop");
+        }, function (event) {
+            $(".hidecs").slideUp();//隐藏路线
+            setTimeout(function(){
+                $(".chosecs").removeClass("changeradius");
+            },400);
+            $(".chosecs i").removeClass("totop");
+            if(event.target.nodeName=="LI"){
+                cameraPosManager.updatePos(event.target.id);
+
+                $(".chosecs span").text(event.target.innerHTML)
+            }
+        });
+
+	$(function(){
+		$(".switch").click(function(){
+			if($(this).hasClass("active")){//off
+				$(this).removeClass("active");
+				if($(this).hasClass("jl")){//关闭距离
+                    PaintingDistanceManager.setVisable(false);
+                    PaintingDistanceManager.visible=false;
+				}
+			}else{//on
+				$(this).addClass("active");
+				if($(this).hasClass("jl")){//开启距离
+					PaintingDistanceManager.setVisable(true);
+                    PaintingDistanceManager.visible=true;
+				}
+			}
+		});
+
+		$(".leftside_menu").lavaLamp({
+			// fx:"backout",
+			speed:300,
+		});
+
+		$(".leftside_menu .title").click(function(){
+			$(".leftside_menu_li").removeClass("current");
+			$($(this).parent()).addClass("current");
+
+			$(".leftside_menu_cont").stop().animate({ left: '-260' }, 400);
+			$(".leftside_menu_cont").css("z-index",-1);
+			var li=$(this).parent();
+			var cont=$(li).find(".leftside_menu_cont");
+			 $(cont).css("z-index",0);
+
+			$(cont).stop().animate({ left: '40' }, 400);
+
+			$($(cont).find("i.closemenu")).click(function(){
+				$(cont).stop().animate({ left: '-260' }, 400);
+	            $(cont).css("z-index",-1);
+	            $(".leftside_menu_li").removeClass("chose");
+	            $(".leftside_menu_li").removeClass("current");
+			});
+		});
+
+		$('div input,textarea').focusin( function(e) {
+		    // disable orbit camera when cursor is in input field
+		    controls.enabled = false;
+		}).focusout( function(e) {
+		    // enable orbit camera when cursor is losing focus
+		    controls.enabled = true;
+		});
+
+		//查询按钮点击
+		$(".searchbox i").click(function(){
+			GetExhibitByName();
+		})
+
+		//监听搜索框的回车事件
+		$(".searchbox input").keydown(function(){
+			if(event.keyCode==13){
+				GetExhibitByName();
+				$(".isshowlist li").removeClass("active");
+				$(".isshowlist li:first").addClass("active");
+			}
+		})
+
+		//未布展、已布展样式切换
+		$(".isshowlist li").click(function(){
+			$($(this).parent().find("li")).removeClass("active");
+			$(this).addClass("active");
+			GetExhibitByStatus($(this).index()+1);
+			$(".typelist li").removeClass("active");
+		});
+
+		//绘制自定义对象
+		$(".zdy .yellowbtn").click(function(){
+			CustomManager.start();
+			CustomManager.setDraw();
+		});
+
+});
+
+	/*文本框数字类型验证*/
+	$("#textsize").keyup(function(){
+		//先把非数字的都替换掉，除了数字和.
+		this.value = this.value.replace(/[^\d.]/g, "");
+		//必须保证第一个为数字而不是.
+		this.value = this.value.replace(/^\./g, "");
+		//保证只有出现一个.而没有多个.
+		this.value = this.value.replace(/\.{2,}/g, ".");
+		//保证.只出现一次，而不能出现两次以上
+		this.value = this.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+		if (this.value != "") {
+			if (this.value.indexOf('.') != -1)
+				this.value = parseInt(this.value.substr(0, this.value.indexOf('.')), 10) + this.value.substring(this.value.indexOf('.'));
+			else this.value = parseInt(this.value, 10);
+		}
+  	});
+
+	/*测量*/
+	$(".btn_cl").click(function(){
+		if($(this).hasClass('hover')){
+			DistanceManager.stop();
+			$(this).removeClass("hover");
+		}else{
+			DistanceManager.start();
+			$(this).addClass("hover");
+		}
+	});
+    //打印预览
+    $(".btn_dyyl").click(function(){
+    	PrintManager.print();
+    })
+
+    // 打印预览返回
+    $(".goback").click(function(){
+    	$($(this).parent()).slideUp();
+    });
+    //输出打印
+    $(".dyylbtn").click(function(){
+    	doPrint();
+    })
+
+    //路线编辑
+    $(".btn_lxbj").click(function(){
+    	if(schemeGuid!=""){
+    		window.open("LinePath/lineEditor.html?guid="+schemeGuid,"_blank");
+    	}
+    });
+//----------------------------------------------详情相关start-------------------------
+    //关闭详情页面
+    $(".collectdetail_close").click(function (event) {
+        event.stopPropagation();
+        $(".collectdetailbg").fadeOut();
+        $("body").css("overflow", "auto");
+    });
+
+    // 视频关闭
+    $(".videobox span.close").click(function () {
+        $(".videobox").fadeOut();
+        $($(".videobox").find("video")).attr("src","");
+    });
+//----------------------------------------------详情相关end-------------------------
+	/*对象组合*/
+	$(".zh_li").click(function(){
+		GroupWrapperManager.initArray();
+    });
+	//解除组合
+    $(".jczh_li").click(function(){
+    	GroupWrapperManager.detachAll();
+    });
+
+    //侧边栏显示隐藏
+     $("#sliderbar").hover(function(){
+     	$("#sliderbar span.slidebar_switch").hide("slow");
+     	$("#sliderbar ul").width(60);
+     },function(){
+     	$("#sliderbar ul").width(0);
+     	$("#sliderbar span.slidebar_switch").show("slow");
+     });
+
+    //布展预览
+    $(".slidebar .preview").parent().click(function(){
+        window.open("http://192.168.10.45:8088/ZBWebGL_V1.2Display/preview.html?SchemeGuid="+schemeGuid,"_blank");
+    	// $(".headright .btn_dyyl").hide();
+    	// $(".headright .btn_lxbj").hide();
+    	// $(".headright .jl").hide();
+    	// $(".leftside").hide();
+    	// // $(".slidebar_view").hide();
+    	// $("#sliderbar").hide();
+    	// $(".slidebar_cancel").show();
+    });
+
+     //取消布展预览
+    $(".slidebar .cancel").parent().click(function(){
+    	$(".headright .btn_dyyl").show();
+    	$(".headright .btn_lxbj").show();
+    	$(".headright .jl").show();
+    	$(".leftside").show();
+    	$("#sliderbar").show();
+    	$(".slidebar_cancel").hide();
+    });
+
+    //保存场景
+    $(".slidebar .save").parent().click(function(){
+    	SaveScene();
+    });
+
+    //清除场景
+    $("#clearscene").click(function(){
+    	$(".md-close").click();
+    	clearScene(true,false);
+        $(".isshowlist li[class='active']").click();
+    });
+
+    //还原场景
+    $(".reduction").parent().click(function(){
+    	clearScene(false,false);
+    	GetSceneInfo();
+    	// 清空展品中已布展样式
+        if($(".isshowlist li:first").hasClass("active")){
+            $("#zhanpin li[class='hasshow']").removeClass("hasshow");
+        }
+        $(".isshowlist li[class='active']").click();
+
+    	layer.msg("<span style=\"color:#fff\">还原成功！</span>");
+    })
+    //冷暖色替换
+    $(".WarmOrCool").click(function(){
+    	var color="";
+    	if($(this).hasClass("active")){
+    		color="#aaaaff";
+    	}else{
+            color="#ffffaa";
+    	}
+    	scene.getObjectByName("ambienlLight").color=new THREE.Color(color);
+    	$(".md-overlay").click();
+    })
+
+	// 帮助
+	$(".headright .bz").click(function(){
+		// selFloorCultural();
+	})
+
+    // /*初始化系统设置框，并设置回调*/
+    // loadrange('#systemsetbox .systemsetdiv',true,function(key,value){
+    //     if(key=="intensity"){
+    //         var ambien=scene.getObjectByName("ambienlLight");
+    //         console.log(ambien.intensity,value);
+    //         ambien[key] = parseFloat(value);
+    //     }
+
+    // });
+
+	// 小地图操作
+	$("span.mapstatus").click(function(){
+     	if($(this).hasClass('tohide')){
+     		$(".mapbox").hide('slow');
+     		$(this).removeClass('tohide').addClass('toshow').attr('title','显示小地图');
+     	}else{
+     		$(".mapbox").width(Global.minmap.width+7).height(Global.minmap.height+2);
+     		$(".mapbox").show();
+     		// Global.minmap.width, Global.minmap.height;
+     		$(this).removeClass('toshow').addClass('tohide').attr('title','隐藏小地图');
+     	}
+	});
+
+	$(".lxshow ul li").click(function(){
+		if($(this).find("i").hasClass('show')){
+        	RenderManager.setRenderType(true);
+        	$(this).hide();
+        	$(this).siblings().show();
+
+		}else if($(this).find("i").hasClass('pause')){
+			 // if(RenderManager.getRenderType()){
+        RenderManager.updateCamera();
+        $(this).siblings().show();
+   // }
+		}
+	})
+
+
+    // 系统设置
+    $("div.xtsz").click(function(){
+    	layer.open({
+			type:1,
+			title: ['设置'],
+		 	area: ['500px'],
+			btn: ['确定','还原'], //按钮
+			content:$("#systemsetbox"),
+			yes: function(index, layero){
+                layer.close(index);
+			   // layer.msg('<span style="color:#fff">保存成功</span>');
+			},
+            btn2: function(index, layero){
+                scene.getObjectByName("ambienlLight").color=new THREE.Color(0xffffff);
+            },
+			cancel:function(){
+			}
+		});
+		/*初始化系统设置框，并设置回调*/
+        loadrange('#systemsetbox .systemsetdiv',true,function(key,value){
+            if(key=="intensity"){
+                var ambien=scene.getObjectByName("ambienlLight");
+                // console.log(ambien.intensity,value);
+                ambien[key] = parseFloat(value);
+            }else if(key=="speed"){
+                controls.movementSpeed = parseInt(value);
+            }
+
+        });
+    });
+	// 自动保存提示信息
+    setInterval(function(){
+     	$(".tips_save").show(0).delay(10000).hide(0);
+    },1000*300);
+
+    
+
+    //将canvas元素作为有效的放置目标
+    $("#ThreeJS").on("dragover",function(event){
+    	event.preventDefault();
+		event.stopPropagation();
+    })
+    $("#ThreeJS").on("drop",function(event){
+    	event.preventDefault();
+    	event.stopPropagation();
+
+		mouse.x = ( event.originalEvent.clientX / window.innerWidth ) * 2 - 1;
+		mouse.y = - ( event.originalEvent.clientY / window.innerHeight ) * 2 + 1;
+
+		var vector = new THREE.Vector3( mouse.x, mouse.y, 0.5 );
+		vector.unproject(camera);
+		raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+    })
+</script>
+	<script src="scripts/ModalWindowEffects/js/classie.js"></script>
+	<script src="scripts/ModalWindowEffects/js/modalEffects.js"></script>
+	<script>
+		// this is important for IEs
+		var polyfilter_scriptpath = '/js/';
+	</script>
+	<script src="scripts/ModalWindowEffects/js/cssParser.js"></script>
+	<script src="scripts/ModalWindowEffects/js/css-filters-polyfill.js"></script>
+	
+</html>

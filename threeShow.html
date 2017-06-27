@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+	</head>
+
+	<body>
+		<!-- 进度条 -->
+		<div id="loaderdiv">
+			<div class="graph">
+				 <strong id="bar" style="width:1%;"></strong>
+			</div>
+		</div>
+		<!-- canvas -->
+		<div id="ThreeJS"></div>
+		<script src="js/three.min.js"></script>
+		<script src="js/controls/TrackballControls.js"></script>
+		<script src="js/Detector.js"></script>
+		<script src="js/loaders/BinaryLoader.js"></script>
+		<script src="js/loaders/MTLLoader.js"></script>
+		<script src="js/loaders/OBJLoader.js"></script>
+		<script src="config.js"></script>
+		<script src="js/jquery1.8.3.js"></script>
+		<script src="threeShow.js"></script>
+		<script>
+
+			// var opts={name:"bitong",minDistance:1,maxDistance:50};
+			// init(opts);
+// document.body.style.cursor = 'pointer';
+			window.onload=function(){
+				if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+				// init();
+				getExhibitInfoByGuid();
+			}
+		</script>
+
+	</body>
+</html>
