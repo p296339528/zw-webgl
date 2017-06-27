@@ -1,0 +1,46 @@
+{
+	"dataSource": [{
+		"Guid": "a413d8a0-9710-4f9a-b0cb-018b6b2cd45a",
+		"Name": "地板2",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116100649nc1YhD.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116100649nc1YhD.png"
+	}, {
+		"Guid": "3788491f-1df9-4ddf-853f-a01f54a9d3e0",
+		"Name": "地板3",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116100703efI7hv.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116100703efI7hv.png"
+	}, {
+		"Guid": "af8357dd-75a2-4cb5-bc7a-0506a1b02f51",
+		"Name": "地板4",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116100745AQgw8G.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116100745AQgw8G.png"
+	}, {
+		"Guid": "9bb6f31d-7757-4409-9710-05f4392e22b0",
+		"Name": "地板5",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116102203FntQ6L.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116102203FntQ6L.png"
+	}, {
+		"Guid": "1a44d2f2-1e9c-48fd-ac86-3b2fa15b955f",
+		"Name": "地板6",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/201701161022225YbgVW.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_201701161022225YbgVW.png"
+	}, {
+		"Guid": "12246120-44ba-4c50-8be6-a2b9f0de5dcb",
+		"Name": "地板7",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116102239HW9kqW.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116102239HW9kqW.png"
+	}, {
+		"Guid": "a86403ff-6004-48a3-8388-3cb673915722",
+		"Name": "地板8",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/201701161023351PmJi5.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_201701161023351PmJi5.png"
+	}],
+	"totalPageNum": 2
+}

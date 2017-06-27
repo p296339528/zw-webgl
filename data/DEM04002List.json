@@ -1,0 +1,28 @@
+{
+	"dataSource": [{
+		"Guid": "8bf41588-198d-4598-9c3c-685f94fdc93d",
+		"Name": "展牌4",
+		"EnglishName": "huakuang",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20161207110703wFVYYM.jpg",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20161207110703wFVYYM.jpg",
+		"Length": 114,
+		"Width": 5,
+		"Height": 163,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/zhanpai/zhanpai4/zhanpai4.js",
+		"Type": "DEM04002",
+		"TypeName": "展牌"
+	},{
+		"Guid": "e43483d6-fff7-4418-a966-3844b73ede15",
+		"Name": "无框展牌",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20170525170933LTwRmO.png",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20170525170933LTwRmO.png",
+		"Length": null,
+		"Width": null,
+		"Height": null,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/20170525170731hBo8Gs/wukuangzhanpai/wukuangzhanpai01.js",
+		"Type": "DEM04002",
+		"TypeName": "展牌"
+	}],
+	"totalPageNum": 1
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "DicValue": "DEM04001",
+        "DicName": "展柜"
+    },
+    {
+        "DicValue": "DEM04002",
+        "DicName": "展牌"
+    },
+    {
+        "DicValue": "DEM04003",
+        "DicName": "屏风"
+    },
+    {
+        "DicValue": "DEM04004",
+        "DicName": "挡板"
+    },
+    {
+        "DicValue": "DEM04005",
+        "DicName": "画框"
+    },
+    {
+        "DicValue": "DEM04006",
+        "DicName": "房子"
+    },
+    {
+        "DicValue": "DEM02",
+        "DicName": "灯光"
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "Guid": "029ad4c6-d788-46fa-99c1-0ffb9ccbb654",
+        "SchemeGuid": "b46cf0f5-77cb-47fc-af0a-9c2c05e988f2",
+        "ExhibitRoomName": "武林馆书画厅",
+        "EnglishName": "wulin",
+        "Abstract": "",
+        "PictureUrl": "data/ImgPic/Thumb300/ExhibitRoomPhoto/s_20161115082138ypBwAP.png",
+        "ModelUrl": "data//HallModel/jsshz/jsshz.obj",
+        "TextureList": null
+    },
+    
+    {
+        "Guid": "353464a1-1be8-49f2-86b7-b5cd1993b5ca",
+        "SchemeGuid": "25424641-5314-47af-bfb6-31ac5fb730e8",
+        "ExhibitRoomName": "精品馆",
+        "EnglishName": "jingp",
+        "Abstract": "",
+        "PictureUrl": "data/ImgPic/Thumb300/ExhibitRoomPhoto/s_20161215201918KR5okz.jpg",
+        "ModelUrl": "data//HallModel/jingpinguan/jingpinguan.obj",
+        "TextureList": null
+    }
+]

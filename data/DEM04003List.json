@@ -1,0 +1,40 @@
+{
+	"dataSource": [{
+		"Guid": "1bf184be-920b-4cc9-bb15-c3e2b27c5efc",
+		"Name": " 浅黄屏风",
+		"EnglishName": "house",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20170207090415GAc399.png",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20170207090415GAc399.png",
+		"Length": 189,
+		"Width": 22,
+		"Height": 179,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/pingfeng/pingfeng2/pingfeng2.js",
+		"Type": "DEM04003",
+		"TypeName": "屏风"
+	}, {
+		"Guid": "a6078726-fbfd-4b3c-92a9-d4fc69ab89ac",
+		"Name": "灰色屏风",
+		"EnglishName": "pf",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20170207090357FSOaNj.png",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20170207090357FSOaNj.png",
+		"Length": 127,
+		"Width": 48,
+		"Height": 189,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/pingfeng/pingfeng1/pingfeng1.js",
+		"Type": "DEM04003",
+		"TypeName": "屏风"
+	}, {
+		"Guid": "6fdae8a9-ad05-4018-a896-d7d1a9459597",
+		"Name": "屏风3",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/201702070904479lhfYi.png",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_201702070904479lhfYi.png",
+		"Length": 357,
+		"Width": 107,
+		"Height": 221,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/pingfeng/pingfeng3/pingfeng3.js",
+		"Type": "DEM04003",
+		"TypeName": "屏风"
+	}],
+	"totalPageNum": 1
+}

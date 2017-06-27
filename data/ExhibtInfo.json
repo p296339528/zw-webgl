@@ -1,0 +1,23 @@
+{
+	"Guid": "f74e9bbe-24dd-4a4a-af4d-9f1b34ba2e82",
+	"Title": "银八卦纹碗",
+	"EnglishName": "wenwan",
+	"PictureUrlThumb100": "data/ImgPic/WaterMark/ExhibitPhoto/20170122110004PrT0bM.jpg",
+	"picList": ["data/ImgPic/WaterMark/ExhibitPhoto/20170122110004PrT0bM.jpg"],
+	"ModelUrl": "data/ImgPic/ModelUrl/3DModel/ExhibitModel/wenwan/wenwan.js",
+	"VideoUrl": "",
+	"AudioUrl": "",
+	"Height": 0,
+	"Width": 0,
+	"Length": 0,
+	"GeneralLength": null,
+	"GeneralWidth": null,
+	"GeneralHeight": null,
+	"SpecificSize": null,
+	"Type": 1,
+	"Status": 0,
+	"ClassifyGuid": "e615c744-72c2-47b0-8bc3-be860bced0f7",
+	"Description": "银八卦纹碗",
+	"ShapeType": "",
+	"ShapeTypeName": null
+}

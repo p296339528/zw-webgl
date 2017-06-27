@@ -1,0 +1,28 @@
+{
+	"dataSource": [{
+		"Guid": "2885c6b0-6d1a-4733-b7db-4363547a116b",
+		"Name": "画框001",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20170123095001zfuUYP.png",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20170123095001zfuUYP.png",
+		"Length": null,
+		"Width": null,
+		"Height": null,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/huakuang/huakuang001/huakuang001.obj",
+		"Type": "DEM04005",
+		"TypeName": "画框"
+	},  {
+		"Guid": "f9f70982-3904-450f-b18c-0ef45fde5b7f",
+		"Name": "画框002",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20170123102123jLgbzJ.png",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20170123102123jLgbzJ.png",
+		"Length": null,
+		"Width": null,
+		"Height": null,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/huakuang/huakuang002/huakuang002.obj",
+		"Type": "DEM04005",
+		"TypeName": "画框"
+	}],
+	"totalPageNum": 1
+}

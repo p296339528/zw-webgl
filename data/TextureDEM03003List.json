@@ -1,0 +1,34 @@
+{
+	"dataSource": [{
+		"Guid": "5565e503-13c0-4e06-bfec-f04b54e87acd",
+		"Name": "墙纸1",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116100122u5W9W3.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116100122u5W9W3.png"
+	}, {
+		"Guid": "7b5ca363-e6f1-46c3-84a3-89b91894f670",
+		"Name": "墙纸",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116100142Sq5x4w.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116100142Sq5x4w.png"
+	}, {
+		"Guid": "de23fe6f-0282-43fd-9ca7-3b02f1947664",
+		"Name": "墙纸3",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/201701161001555VTdXx.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_201701161001555VTdXx.png"
+	}, {
+		"Guid": "406d2017-4aca-4664-9481-600f53fac8a6",
+		"Name": "墙纸8",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116100209U1x83R.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116100209U1x83R.png"
+	}, {
+		"Guid": "c3e12456-4831-4faf-8c1e-84e24c458be9",
+		"Name": "墙纸9",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/TextureInfoPhoto/20170116100222EuxdBA.png",
+		"ImagePath100": "data/ImgPic/Thumb100/TextureInfoPhoto/s_20170116100222EuxdBA.png"
+	}],
+	"totalPageNum": 1
+}

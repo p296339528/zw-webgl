@@ -1,0 +1,28 @@
+{
+	"dataSource": [{
+		"Guid": "9c740a02-6d4c-4d73-a670-7a6616d6df8c",
+		"Name": "展柜002",
+		"EnglishName": "zhangui002",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20170105143439DZbWb6.jpg",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20170105143439DZbWb6.jpg",
+		"Length": 156,
+		"Width": 154,
+		"Height": 238,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/zhangui/zhangui002/zhangui002.js",
+		"Type": "DEM04001",
+		"TypeName": "展柜"
+	}, {
+		"Guid": "e0fb83fa-79f1-493c-9b77-dfb7698af2e4",
+		"Name": "展柜003",
+		"EnglishName": "",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20170105143854JuQSXo.jpg",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20170105143854JuQSXo.jpg",
+		"Length": 118,
+		"Width": 59,
+		"Height": 72,
+		"ModelPath": "data/ImgPic/ModelUrl/3DModel/zhangui/zhangui003/zhangui003.js",
+		"Type": "DEM04001",
+		"TypeName": "展柜"
+	}],
+	"totalPageNum": 1
+}

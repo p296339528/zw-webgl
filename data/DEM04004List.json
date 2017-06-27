@@ -1,0 +1,16 @@
+{
+	"dataSource": [{
+		"Guid": "d3a83d8b-00c6-44dc-97a5-6b50cc39db9f",
+		"Name": "挡板",
+		"EnglishName": "dangb",
+		"ImagePath": "data/ImgPic/WaterMark/ModelInfoPhoto/20161115161853P9snDH.png",
+		"ImagePath100": "data/ImgPic/Thumb100/ModelInfoPhoto/s_20161115161853P9snDH.png",
+		"Length": 2,
+		"Width": 5,
+		"Height": 1.5,
+		"ModelPath": "data/ImgPic/ModelUrl/",
+		"Type": "DEM04004",
+		"TypeName": "挡板"
+	}],
+	"totalPageNum": 1
+}

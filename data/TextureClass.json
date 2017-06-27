@@ -1,0 +1,10 @@
+[{
+	"DicValue": "DEM03001",
+	"DicName": "外墙"
+}, {
+	"DicValue": "DEM03003",
+	"DicName": "内墙"
+}, {
+	"DicValue": "DEM03002",
+	"DicName": "地板"
+}]
