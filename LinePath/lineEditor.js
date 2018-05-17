@@ -25,7 +25,7 @@ function setup() {
 
     // set up all the 3D objects in the scene
     createScene();
-    drawFrame(0);
+    //drawFrame(0);
     getExhibitionHallInfo();
     getPointInfo();
     animate();
@@ -35,7 +35,7 @@ function setup() {
 var onProgress = function(xhr) {
     if (xhr.lengthComputable) {
         var percentComplete = xhr.loaded / xhr.total * 100;
-        drawFrame(Math.round(percentComplete, 2));
+        //drawFrame(Math.round(percentComplete, 2));
         // console.log(Math.round(percentComplete,2));
         if (Math.round(percentComplete, 2) >= 100) {
             $(".loading").hide();
